@@ -5,30 +5,31 @@ import java.util.TreeMap;
 
 public class Translations {
 	
-	private static TreeMap<String, String> trans=new TreeMap<String, String>();
+	private static TreeMap<String, String> map=new TreeMap<String, String>();
 	
 	public static String get(String key){		
-		if (trans.containsKey(key)) return trans.get(key);
+		if (map.containsKey(key)) return map.get(key);
 		return key;
 	}
 
-	private static Translation loadTranslations(String path) {		
-		String locale=Locale.getDefault().getLanguage().toUpperCase();
-		System.out.print("Loading translation Translation"+locale+"...");
+	private static Translation loadTranslation(String path, String locale) {
+		if (locale==null || locale.isEmpty()) {
+			locale=Locale.getDefault().getLanguage();
+			locale=locale.toUpperCase();
+			System.out.print("Trying to load Translation"+locale+" based on operating system...");
+		} else {
+			locale=locale.toUpperCase();
+			System.out.print("Trying to load Translation"+locale+" based on user settings...");			
+		}
 		Translation trans;
 		try {
 			trans = (Translation) Translation.class.getClassLoader().loadClass(path+"Translation"+locale).newInstance();
 			System.out.println("success.");
 			return trans;
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
 		}
 		System.out.println("Failed. Using en.");
-		return new Translation();
+		return null;
 	}
 	
 	public static String get(String key, Object insert) {
@@ -50,6 +51,18 @@ public class Translations {
   }
 
 	public static void getFor(@SuppressWarnings("rawtypes") Class cl) {
-		trans=loadTranslations(cl.getPackage().getName()+".").getTranslations();
+		Translation translation = loadTranslation(cl.getPackage().getName()+".",null);
+		map=translation.getMap();
   }
+
+	public static boolean getFor(@SuppressWarnings("rawtypes") Class cl, String lang) {
+		Translation translation=loadTranslation(cl.getPackage().getName()+".",lang);
+		if (translation!=null){
+			map=translation.getMap();
+			return true;
+		}
+		map=new TreeMap<String, String>();
+		return false;
+		
+	}
 }
