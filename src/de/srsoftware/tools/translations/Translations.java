@@ -29,7 +29,7 @@ public class Translations {
 		} catch (Exception e) {
 		}
 		System.out.println("Failed. Using en.");
-		return null;
+		return new Translation();
 	}
 	
 	public static String get(String key, Object insert) {
