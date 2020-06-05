@@ -60,12 +60,21 @@ public class Translation {
 		String line;
 		Map<String,String> map = new HashMap<String, String>();
 		while ((line = br.readLine()) != null) {
-			// TODO: escape ':' in Strings
-			String[] parts = line.split(":");
-			map.put(parts[0].trim(), parts[1].trim());
+			int colon = findColon(line);
+			if (colon == -1) continue;
+			
+			map.put(line.substring(0,colon).replace("\\:", ":").trim(), line.substring(colon+1).replace("\\:", ":").trim());
 		}
-		br.close();
+		br.close();		
 		return map;
+	}
+
+	private static int findColon(String line) {
+		int colon = line.indexOf(':');
+		while (colon > 1 && line.charAt(colon-1)=='\\') {
+			colon = line.indexOf(':', colon+1);
+		}
+		return colon;
 	}
 
 	private static File find(File dir, String filename) {

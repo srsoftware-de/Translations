@@ -1,3 +1,5 @@
 Hello {} world : Hallo {} Welt
-wonderful : wunderbare
 beautiful : schöne
+Testing text with colons\: {} : Teste Text mit Doppelpunkten\: {}
+It works! : Es funktinoiert!
+Short form\: {} : Kurzform\: {}
