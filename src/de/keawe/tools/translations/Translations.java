@@ -1,4 +1,4 @@
-package de.srsoftware.tools.translations;
+package de.keawe.tools.translations;
 import java.util.Locale;
 import java.util.TreeMap;
 
