@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.keawe</groupId>
 	<artifactId>tools.translations</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Translations</name>
 	<description>A class for Map-based translations</description>
 	<url>https://github.com/StephanRichter/Translations</url>
-	
-	<build> 
+
+	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<plugins>
 			<plugin>
@@ -35,12 +35,13 @@
 					</execution>
 				</executions>
 			</plugin>
+
 			<plugin>
 				<!-- for generating ~javadoc.jar -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>3.2.0</version>
-				
+
 				<configuration>
 					<source>1.8</source>
 					<doclint>none</doclint>
@@ -50,6 +51,22 @@
 						<id>attach-javadocs</id>
 						<goals>
 							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<!-- for signing components -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
 						</goals>
 					</execution>
 				</executions>
