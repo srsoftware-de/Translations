@@ -2,6 +2,11 @@ package de.keawe.examples.translations;
 
 import de.keawe.tools.translations.Translation;
 
+/**
+ * Simple application demonstrating the use of the Translation class
+ * @author Stephan Richter <stephan.richter.it@jena.de>
+ *
+ */
 public class App {
 	public App() {
 		System.out.println("Hello world!");
