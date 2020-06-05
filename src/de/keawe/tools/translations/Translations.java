@@ -23,7 +23,7 @@ public class Translations {
 		}
 		Translation trans;
 		try {
-			trans = (Translation) Translation.class.getClassLoader().loadClass(path+"Translation"+locale).newInstance();
+			trans = (Translation) Translation.class.getClassLoader().loadClass(path+"Translation"+locale).getDeclaredConstructor().newInstance();
 			System.out.println("success.");
 			return trans;
 		} catch (Exception e) {
