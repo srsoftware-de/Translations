@@ -1,3 +1,5 @@
+![maven status](https://img.shields.io/maven-central/v/de.keawe/tools.translations.svg)
+
 Translations
 ============
 
