@@ -8,7 +8,7 @@
 	<version>1.1.1</version>
 	<name>Translations</name>
 	<description>A class for Map-based translations</description>
-	<url>https://github.com/StephanRichter/Translations</url>
+	<url>https://github.com/keawe-software/Translations</url>
 	<organization>
 		<name>Keawe</name>
 		<url>https://keawe.de</url>
@@ -31,9 +31,9 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:git://github.com/StephanRichter/Translations.git</connection>
-		<developerConnection>scm:git:git@github.com:StephanRichter/Translations.git</developerConnection>
-		<url>https://github.com/StephanRichter/Translations</url>
+		<connection>scm:git:git://github.com/keawe-software/Translations.git</connection>
+		<developerConnection>scm:git:git@github.com:keawe-software/Translations.git</developerConnection>
+		<url>https://github.com/keawe-software/Translations</url>
 		<tag>HEAD</tag>
 	</scm>
 
