@@ -13,7 +13,7 @@ public class App {
 		System.out.println(_("Short form: {}","_(text, fills);"));
 	}
 	
-	private String _(String text,String...fills) {
+	private String _(String text,Object...fills) {
 		return Translation.get(this, text, fills);
 	}
 	

@@ -27,7 +27,7 @@ public class Translation {
 	 * @param fills fillers for {} stanzas, which are also translated
 	 * @return
 	 */
-	public static String get(Class<?> clazz, String text, String...fills) {
+	public static String get(Class<?> clazz, String text, Object...fills) {
 		return getTranslation(getClassTranslations(clazz),text,fills);
 	}
 	
@@ -38,19 +38,20 @@ public class Translation {
 	 * @param fills
 	 * @return
 	 */
-	public static String get(Object context, String text, String...fills) {
+	public static String get(Object context, String text, Object...fills) {
 		return get(context.getClass(),text,fills);
 	}
 
-	private static String getTranslation(Map<String, String> classTranslations, String text, String[] fills) {
+	private static String getTranslation(Map<String, String> classTranslations, String text, Object[] fills) {
 		if (classTranslations.containsKey(text)) {
 			text = classTranslations.get(text);
 		}
-		for (String fillin : fills) {
-			if (classTranslations.containsKey(fillin)) {
-				fillin = classTranslations.get(fillin);
+		for (Object fillin : fills) {
+			String fill = (fillin == null) ? "" :  fillin.toString();
+			if (classTranslations.containsKey(fill)) {
+				fill = classTranslations.get(fill);
 			}
-			text = text.replaceFirst("\\{\\}", fillin);
+			text = text.replaceFirst("\\{\\}", fill);
 		}
 		return text;
 	}

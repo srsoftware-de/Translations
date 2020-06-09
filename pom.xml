@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.keawe</groupId>
 	<artifactId>tools.translations</artifactId>
-	<version>1.0.1</version>
+	<version>1.1.0</version>
 	<name>Translations</name>
 	<description>A class for Map-based translations</description>
 	<url>https://github.com/StephanRichter/Translations</url>
