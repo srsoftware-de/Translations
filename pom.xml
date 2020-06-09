@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -12,10 +13,46 @@
 		<name>Keawe</name>
 		<url>https://keawe.de</url>
 	</organization>
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Stephan Richter</name>
+			<email>s.richter@keawe.de</email>
+			<organization>Keawe</organization>
+			<organizationUrl>http://www.keawe.de</organizationUrl>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:git://github.com/StephanRichter/Translations.git</connection>
+		<developerConnection>scm:git:git@github.com:StephanRichter/Translations.git</developerConnection>
+		<url>https://github.com/StephanRichter/Translations</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<distributionManagement>
+		<!-- for deployment to MAVEN CENTRAL -->
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
 	<build>
-		<sourceDirectory>src/main/java</sourceDirectory>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
 				<configuration>
@@ -64,6 +101,13 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
 				<version>1.5</version>
+				<configuration>
+					<gpgArguments>
+						<arg>--batch</arg>					
+						<arg>--pinentry-mode</arg>
+						<arg>loopback</arg>
+					</gpgArguments>
+				</configuration>
 				<executions>
 					<execution>
 						<id>sign-artifacts</id>
@@ -104,39 +148,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<developers>
-		<developer>
-			<name>Stephan Richter</name>
-			<email>s.richter@keawe.de</email>
-			<organization>Keawe</organization>
-			<organizationUrl>http://www.keawe.de</organizationUrl>
-		</developer>
-	</developers>
-
-	<distributionManagement>
-		<!-- for deployment to MAVEN CENTRAL -->
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-		<repository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-		</repository>
-	</distributionManagement>
-
-	<licenses>
-		<license>
-			<name>MIT License</name>
-			<url>http://www.opensource.org/licenses/mit-license.php</url>
-		</license>
-	</licenses>
-
-	<scm>
-		<connection>scm:git:git://github.com/StephanRichter/Translations.git</connection>
-		<developerConnection>scm:git:git@github.com:StephanRichter/Translations.git</developerConnection>
-		<url>https://github.com/StephanRichter/Translations</url>
-		<tag>HEAD</tag>
-	</scm>
 </project>
