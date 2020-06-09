@@ -8,6 +8,9 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * This class provides a helper to load translations from text files
  * 
@@ -15,6 +18,7 @@ import java.util.Map;
  *
  */
 public class Translation {
+	private static final Logger log = LoggerFactory.getLogger(Translation.class);
 	private static String root = System.getProperty("user.dir"); 
 	private static String locale = Locale.getDefault().getLanguage().toLowerCase();
 	private static Map<String, Map<String,String>> translations = new HashMap<String, Map<String,String>>();
@@ -68,7 +72,7 @@ public class Translation {
 		String translation = classname+"."+locale+".translation";
 		File f = find(new File(root),translation);
 		if (f != null) {
-			System.out.println("Loading "+f);
+			log.info("Loading {}",f);
 			try {
 				translations.put(classname,loadTranslationsFrom(f));
 			} catch (IOException e) {
@@ -76,7 +80,7 @@ public class Translation {
 				e.printStackTrace();
 			}
 		} else {
-			System.out.println("No translations found.");
+			log.info("No translations found.");
 			translations.put(classname, new HashMap<String, String>());
 		}		
 	}

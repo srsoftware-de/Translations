@@ -1,5 +1,8 @@
 package de.keawe.examples.translations;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import de.keawe.tools.translations.Translation;
 
 /**
@@ -8,17 +11,18 @@ import de.keawe.tools.translations.Translation;
  *
  */
 public class App {
+	private static final Logger log = LoggerFactory.getLogger(App.class);
 	public App() {
-		System.out.println(Translation.get(this,"Testing text with colons: {}","It works!"));
-		System.out.println(_("Short form: {}","_(text, fills);"));
+		log.info(Translation.get(this,"Testing text with colons: {}","It works!"));
+		log.info(t("Short form: {}","_(text, fills);"));
 	}
 	
-	private String _(String text,Object...fills) {
+	private String t(String text,Object...fills) {
 		return Translation.get(this, text, fills);
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(Translation.get(App.class,"Hello {} world","beautiful"));
+		log.info(Translation.get(App.class,"Hello {} world","beautiful"));
 		new App();		
 	}
 }

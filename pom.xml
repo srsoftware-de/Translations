@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.keawe</groupId>
 	<artifactId>tools.translations</artifactId>
-	<version>1.1.1</version>
+	<version>1.1.2</version>
 	<name>Translations</name>
 	<description>A class for Map-based translations</description>
 	<url>https://github.com/keawe-software/Translations</url>
@@ -48,7 +48,26 @@
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
 	</distributionManagement>
-
+	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.30</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>1.2.3</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+			<scope>runtime</scope>
+		</dependency>
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
@@ -103,7 +122,7 @@
 				<version>1.5</version>
 				<configuration>
 					<gpgArguments>
-						<arg>--batch</arg>					
+						<arg>--batch</arg>
 						<arg>--pinentry-mode</arg>
 						<arg>loopback</arg>
 					</gpgArguments>
