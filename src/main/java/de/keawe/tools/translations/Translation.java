@@ -22,6 +22,17 @@ public class Translation {
 	private static String root = System.getProperty("user.dir"); 
 	private static String locale = Locale.getDefault().getLanguage().toLowerCase();
 	private static Map<String, Map<String,String>> translations = new HashMap<String, Map<String,String>>();
+	
+	public static File find(File dir, String filename) {
+		File[] list = dir.listFiles();
+		for (File f : list) {
+			if (f.isDirectory()) {
+				f = find(f,filename);
+				if (f != null) return f;
+			} else if (f.getName().equals(filename)) return f;
+		}
+		return null;
+	}
 
 	/**
 	 * Get the translation for a text. Translations are loaded by clazz and default locale:
@@ -107,20 +118,5 @@ public class Translation {
 		return colon;
 	}
 
-	private static File find(File dir, String filename) {
-		File[] list = dir.listFiles();
-		for (File f : list) {
-			if (f.isDirectory()) {
-				f = find(f,filename);
-				if (f != null) {
-					return f;
-				}
-			} else {
-				if (f.getName().equals(filename)) {
-					return f;
-				}
-			}
-		}
-		return null;
-	}
+
 }

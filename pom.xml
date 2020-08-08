@@ -3,15 +3,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>de.keawe</groupId>
+	<groupId>de.srsoftware</groupId>
 	<artifactId>tools.translations</artifactId>
 	<version>1.1.2</version>
 	<name>Translations</name>
 	<description>A class for Map-based translations</description>
 	<url>https://github.com/keawe-software/Translations</url>
 	<organization>
-		<name>Keawe</name>
-		<url>https://keawe.de</url>
+		<name>SRSoftware</name>
+		<url>https://srsoftware.de</url>
 	</organization>
 
 	<licenses>
@@ -24,9 +24,9 @@
 	<developers>
 		<developer>
 			<name>Stephan Richter</name>
-			<email>s.richter@keawe.de</email>
-			<organization>Keawe</organization>
-			<organizationUrl>http://www.keawe.de</organizationUrl>
+			<email>s.richter@srsoftware.de</email>
+			<organization>SRSoftware</organization>
+			<organizationUrl>http://www.srsoftware.de</organizationUrl>
 		</developer>
 	</developers>
 
@@ -67,8 +67,9 @@
 			<artifactId>logback-classic</artifactId>
 			<version>1.2.3</version>
 			<scope>runtime</scope>
-		</dependency>
+		</dependency>		
 	</dependencies>
+	
 	<build>
 		<plugins>
 			<plugin>
