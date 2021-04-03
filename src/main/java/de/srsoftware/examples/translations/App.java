@@ -1,9 +1,9 @@
-package de.keawe.examples.translations;
+package de.srsoftware.examples.translations;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.keawe.tools.translations.Translation;
+import de.srsoftware.tools.translations.Translation;
 
 /**
  * Simple application demonstrating the use of the Translation class
@@ -13,7 +13,7 @@ import de.keawe.tools.translations.Translation;
 public class App {
 	private static final Logger log = LoggerFactory.getLogger(App.class);
 	public App() {
-		log.info(Translation.get(this,"Testing text with colons: {}","It works!"));
+		log.info(de.srsoftware.tools.translations.Translation.get(this,"Testing text with colons: {}","It works!"));
 		log.info(t("Short form: {}","_(text, fills);"));
 	}
 	

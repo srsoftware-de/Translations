@@ -1,4 +1,4 @@
-package de.keawe.tools.translations;
+package de.srsoftware.tools.translations;
 
 import java.io.BufferedReader;
 import java.io.File;
